@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind and daisyUi cdn link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- fontawesome cdn link -->
+    <script
+      src="https://kit.fontawesome.com/c0e6a970a0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Ph-tube</title>
+  </head>
+  <body>
+    <header class="container mx-auto">
+      <div
+        class="navbar bg-base-100 border-b-2 border-red-300 border-dotted pb-3"
+      >
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <a
+                class="bg-gray-200 font-medium hover:bg-gray-300 duration-300 text-black max-sm:px-4 max-sm:py-2 px-6 py-3 cursor-pointer rounded-lg"
+                >Short By View</a
+              >
+            </ul>
+          </div>
+          <a
+            class="bg-white border-b-2 border-red-300 max-sm:text-lg font-bold text-3xl text-black max-sm:px-6 max-sm:py-1 px-10 py-2 cursor-pointer rounded-lg"
+            ><i class="fa-regular fa-circle-play text-red-500"></i>
+            <span class="text-red-500">Ph</span> Tube</a
+          >
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <a
+              class="bg-gray-200 font-medium hover:bg-gray-300 duration-300 text-black max-sm:px-4 max-sm:py-2 px-6 py-3 cursor-pointer rounded-lg"
+              >Short By View</a
+            >
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a
+            class="bg-red-600 font-medium hover:bg-red-500 duration-300 text-white max-sm:px-4 max-sm:py-2 px-6 py-3 cursor-pointer rounded-lg"
+            >blog</a
+          >
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
