@@ -12,11 +12,17 @@ const fetchCategories = () => {
       data.forEach((card) => {
         const newBtn = document.createElement("button");
         newBtn.className =
-          "bg-gray-200 font-medium hover:bg-gray-300 max-sm:mb-3 duration-300 text-black max-sm:px-4 max-sm:py-2 px-6 py-3 cursor-pointer rounded-lg";
+          "category-btn bg-gray-200 font-medium hover:bg-red-400 max-sm:mb-3 duration-300 text-black max-sm:px-4 max-sm:py-2 px-6 py-3 cursor-pointer rounded-lg";
         newBtn.innerText = card.category;
-        newBtn.addEventListener("click", () =>
-          fetchDataByCategories(card.category_id)
-        );
+        newBtn.addEventListener("click", () => {
+          fetchDataByCategories(card.category_id);
+          const allBtns = document.querySelectorAll(".category-btn");
+          for (const btn of allBtns) {
+            btn.classList.remove("bg-red-500");
+            // newBtn.classList.add("text-white");
+          }
+          newBtn.classList.add("bg-red-500");
+        });
         btnContainerEl.appendChild(newBtn);
       });
     });
