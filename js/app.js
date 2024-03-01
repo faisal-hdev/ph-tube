@@ -1,6 +1,7 @@
 // select over here all the element
 const btnContainerEl = document.getElementById("btn-container");
 const categoriesContainerEl = document.getElementById("categories-container");
+const errorElementEl = document.getElementById("error-element");
 
 let selectedCategory = 1000;
 const fetchCategories = () => {
@@ -27,14 +28,25 @@ const fetchDataByCategories = (categoryID) => {
   fetch(url)
     .then((res) => res.json())
     .then(({ data }) => {
+      if (data.length === 0) {
+        errorElementEl.classList.remove("hidden");
+      } else {
+        errorElementEl.classList.add("hidden");
+      }
       categoriesContainerEl.innerHTML = "";
       data.forEach((video) => {
-        console.log(video);
+        let verifiedBadge = "";
+        if (video.authors[0].verified) {
+          verifiedBadge = `
+          <i class="fa-solid fa-check"></i>
+        `;
+        }
         const newCard = document.createElement("div");
         newCard.className = "card bg-base-100 shadow-md border border-red-400";
         newCard.innerHTML = `
            <figure>
               <img
+              class="h-auto w-full md:h-[220px] lg:h-[170px] object-cover"
                 src="${video?.thumbnail}"
                 alt="Shoes"
               />
@@ -42,17 +54,17 @@ const fetchDataByCategories = (categoryID) => {
             <div class="p-4 space-y-3">
               <h2 class="card-title">
                 ${video?.title}
-                <div class="badge badge-secondary">NEW</div>
               </h2>
               <div class="">Views : ${video?.others.views}</div>
              <div class="flex items-center gap-3">
                 <div>
                 <img
-                class="w-12 h-12 object-cover rounded-full"
+                class="w-10 h-10 object-cover rounded-full"
                 src="${video?.authors[0].profile_picture} "
                 alt="Shoes"/>
                 </div> 
                 <div class="badge badge-outline">${video?.authors[0]?.profile_name}</div>
+                ${verifiedBadge}
             </div>
             
         `;
